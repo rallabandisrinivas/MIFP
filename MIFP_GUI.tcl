@@ -4,12 +4,17 @@
 
 # 变量空间
 namespace eval ::hmGUI {
+	variable name
     variable filepath;
     variable label_width;
-    variable button_width 18; 
+    variable button_cloumn 11;
+	variable button_width;
 }
+set panelWidth [lindex [hm_getpanelarea] 2]
+set width [expr {$panelWidth / $::hmGUI::button_cloumn / 10 + 1}]
 set ::hmGUI::filepath [file dirname [info script]]
-set ::hmGUI::label_width $::hmGUI::button_width
+set ::hmGUI::label_width $width
+set ::hmGUI::button_width $width
 set ::hmGUI::name "快速建模平台"
 
 # 创建按键阵列：函数{位置，列表}
@@ -49,7 +54,6 @@ destroy .f
 frame .f
 frame .f.title
 pack .f.title -side top -fill both
-label .f.title.tLabel -text $::hmGUI::name -font {MS 10}  -compound center -height 1 -fg #A00000
 catch {pack .f.title.tLabel -side top}
 
 frame .f.top
@@ -93,6 +97,7 @@ create_label_button 3 $line
 # -------------------
 set 	line "2D网格"
 lappend line "{批创建：faces} {MeshEdit/batchCreatFaces.tcl}"
+lappend line "{包络网格} {MeshEdit/wrapMesh.tcl}"
 lappend line "{_质量优化} {MeshEdit/optimizeElement.tcl}"
 create_label_button 4 $line
 
