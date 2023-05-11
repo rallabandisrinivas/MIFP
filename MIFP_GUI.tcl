@@ -79,7 +79,7 @@ create_label_button 1 $line
 set 	line "快速创建"
 lappend line "{_部位库} {}"
 lappend line "{材料库} {Material/MatLibrary_GUI.tcl}"
-lappend line "{创建场输出} {AutoModel/CreatOutput.tcl}"
+lappend line "{创建默认场输出} {AutoModel/CreatOutput.tcl}"
 lappend line "{创建Static-Step} {AutoModel/CreatStaticStep.tcl}"
 lappend line "{创建接触控制} {AutoModel/CreatCtrl.tcl}"
 create_label_button 2 $line
@@ -96,7 +96,7 @@ create_label_button 3 $line
 
 # -------------------
 set 	line "2D网格"
-lappend line "{批创建：faces} {MeshEdit/batchCreatFaces.tcl}"
+lappend line "{_批创建：faces} {MeshEdit/batchCreatFaces.tcl}"
 lappend line "{包络网格} {MeshEdit/wrapMesh.tcl}"
 lappend line "{_质量优化} {MeshEdit/optimizeElement.tcl}"
 create_label_button 4 $line
