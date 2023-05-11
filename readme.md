@@ -1,11 +1,13 @@
-# HypermeshMIFP
+# MIFP
 
 - 用于Hypermesh前处理的快速有限元建模平台，主要面向Abaqus
+- Work-in-progress
 ***
 
 ## 版本
 
 - Hypermesh2021
+***
 
 ## 功能列表
 
@@ -43,4 +45,6 @@
 	运行MIFP_GUI.tcl脚本进入MIFP面板
 
 - 方法2.设置快捷键
+***
 
+## 功能更新
