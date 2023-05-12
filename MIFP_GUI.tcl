@@ -72,7 +72,7 @@ for { set i 1 } { $i < 12 } { incr i 1 } {
 set 	line "自动化"
 lappend line "{自动保存} {AutoModel/AutoSave.tcl}"
 lappend line "{批量导入} {AutoModel/BatchInput.tcl}"
-lappend line "{自动建模(项目定制化)} {AutoModel/projectModel.tcl}"
+lappend line "{项目定制} {AutoModel/projectModel.tcl}"
 create_label_button 1 $line
 
 # -------------------
