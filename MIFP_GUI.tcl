@@ -79,9 +79,9 @@ create_label_button 1 $line
 set 	line "快速创建"
 lappend line "{_部位库} {}"
 lappend line "{材料库} {Material/MatLibrary_GUI.tcl}"
-lappend line "{创建默认场输出} {AutoModel/CreatOutput.tcl}"
-lappend line "{创建Static-Step} {AutoModel/CreatStaticStep.tcl}"
-lappend line "{批创建：接触控制} {AutoModel/CreatCtrl.tcl}"
+lappend line "{默认场输出} {AutoModel/CreatOutput.tcl}"
+lappend line "{Static-Step} {AutoModel/CreatStaticStep.tcl}"
+lappend line "{接触控制} {AutoModel/CreatCtrl.tcl}"
 create_label_button 2 $line
 
 # -------------------
