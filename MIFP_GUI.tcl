@@ -120,6 +120,7 @@ create_label_button 7 $line
 # -------------------
 set		line "Abaqus脚本"
 lappend line "{_运行Abaqus} {}"
+lappend line "{_循环计算} {}"
 lappend line "{_骨生长设置} {}"
 lappend line "{_骨吸收设置} {}"
 create_label_button 8 $line
