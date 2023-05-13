@@ -1,9 +1,9 @@
-    ![image](icons/bond.png)
 # MIFP
 
-- 用于Hypermesh前处理的快速有限元建模平台，主要面向Abaqus
+![image](https://github.com/Ziarant/MIFP/tree/main/icons/bond.png)
 
-    ![image](https://shields.io/category/build/appveyor/build/:user/:repo)
+- 用于Hypermesh前处理的快速有限元建模平台，主要面向Abaqus
+- Work-in-progress
 ***
 
 ## 版本
