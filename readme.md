@@ -1,4 +1,4 @@
-![image](https://github.com/Ziarant/MIFP/tree/main/icons/bond.png)
+![image](icons/bond.png)
 # MIFP
 
 - 用于Hypermesh前处理的快速有限元建模平台，主要面向Abaqus
@@ -39,7 +39,7 @@
 - [ ] 接口
 ***
 
-## 使用方法
+## 快速开始
 
 - 方法1.运行脚本
 
@@ -48,4 +48,4 @@
 - 方法2.设置快捷键
 ***
 
-## 功能更新
+## 更新日志
