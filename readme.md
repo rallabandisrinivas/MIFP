@@ -2,7 +2,8 @@
 # MIFP
 
 - 用于Hypermesh前处理的快速有限元建模平台，主要面向Abaqus
-- Work-in-progress
+
+    ![image](https://shields.io/category/build/appveyor/build/:user/:repo)
 ***
 
 ## 版本
