@@ -6,13 +6,16 @@
 namespace eval ::matGUI {
     variable filepath;
     variable label_width;
-    variable button_width 15; 
+    variable button_cloumn 12; 
+	variable button_width;
 	variable sheet
 	variable currentModule
 }
 if {[info exists ::matGUI::sheet]==0}		{set ::matGUI::sheet 0}
 if {[info exists ::matGUI::currentModule]==0}		{set ::matGUI::currentModule 线弹性体}
 
+set width [expr {$panelWidth / $::matGUI::button_cloumn / 10 + 1}]
+set ::matGUI::button_width $width
 set ::matGUI::filepath [file dirname [info script]]
 set ::matGUI::label_width $::matGUI::button_width
 set ::matGUI::name "材料库"
