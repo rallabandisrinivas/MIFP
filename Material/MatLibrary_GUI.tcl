@@ -143,23 +143,27 @@ proc creatMatPanel {sheet} {
 
 	# 第二页：弹塑性体
 	if {$sheet==1} {
+		set		line "实体"
+		create_label_button 1 $line
+	
 		set		line "多孔材料"
 		lappend line "{钻石型} {creatMaterial.tcl;creatPlasticMat Porous_Diamond}"
 		lappend line "{十二面体} {creatMaterial.tcl;creatPlasticMat Porous_12hedron}"
 		lappend line "{体心立方} {creatMaterial.tcl;creatPlasticMat Porous_BodyCenter}"
-		create_label_button 1 $line
+		create_label_button 2 $line
 	}
 
 	# 第三页：超弹性体
 	if {$sheet==2} {
-		
+		set		line "实体"
+		create_label_button 1 $line
 	}
 	
 	# pack小部件设置
-	for { set hloc 0 } { $hloc < 15 } { incr hloc 1 } {
+	for { set hloc 0 } { $hloc < 8 } { incr hloc 1 } {
 		for { set vloc 1 } { $vloc < 15 } { incr vloc 1 } {
 			catch {
-				pack .f.top.$vloc.$hloc -side top -anchor nw -padx 1 -pady 0
+				pack .f.top.$vloc.$hloc -side top -anchor nw -padx 0 -pady 0
 			}
 		}
 	}
@@ -177,7 +181,7 @@ foreach module {线弹性体 弹塑性体 超弹性体 其他材料} {
         -value $module \
 		-height 1\
 		-width $::matGUI::button_width\
-		-font {MS 11}\
+		-font {MS 12}\
         -command "pushPanel $module" ]
 	incr i
 }

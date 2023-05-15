@@ -17,6 +17,8 @@ set ::hmGUI::label_width $width
 set ::hmGUI::button_width $width
 set ::hmGUI::name "快速建模平台"
 
+hm_setpanelheight 220
+
 # 创建按键阵列：函数{位置，列表}
 proc create_label_button {loc line} {
 
@@ -139,6 +141,7 @@ create_label_button 10 $line
 
 # -------------------
 set		line "接口"
+lappend line "{面板测试} {Test/panelTest.tcl}"
 create_label_button 11 $line
 
 

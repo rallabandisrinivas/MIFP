@@ -54,7 +54,7 @@ set ::Mat::Elastic1D(C_LF) [list 10 0.4 8.5]
 set ::Mat::Elastic1D(C_ISL) [list 10 0.4 1.31]
 set ::Mat::Elastic1D(C_JCL) [list 20 0.4 5.1]
 
-# 线弹性材料:Elastic(名称) [弹性模量(MPa) 泊松比 屈服强度 密度]
+# 线弹性材料:Elastic(名称) [弹性模量(MPa) 泊松比 屈服强度List 密度]
 set ::Mat::Plastic(Porous_Diamond) [list 1985.96 0.3 [list 65.34 0]]
 set ::Mat::Plastic(Porous_12hedron) [list 1721.44 0.3 [list 63.16 0]]
 set ::Mat::Plastic(Porous_BodyCenter) [list 1221.43 0.3 [list 49.67 0]]
@@ -80,7 +80,7 @@ proc creat1DElasticMat {name} {
 	# 设置材料、属性
 	createElasticMaterial $name $E $NU $noCompress
 	createPropertiesSolid1D $name $AREA
-	puts \t创建线弹性材料：$name\t\t弹性模量：$E\t\t泊松比：$NU
+	puts \t创建线弹性材料：$name\t\t弹性模量：$E\t\t泊松比：$NU\t\t横截面积：$AREA
 	}
 	
 proc creatPlasticMat {name} {
