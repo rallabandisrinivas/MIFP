@@ -4,8 +4,9 @@ namespace eval ::panelGUI {
     variable label_width;
     variable button_cloumn 12; 
 	variable button_width;
-	variable sheet
-	variable currentModule
+	variable entryValue 12;
+	variable sheet;
+	variable currentModule;
 }
 
 set panelWidth [lindex [hm_getpanelarea] 2]
@@ -32,9 +33,18 @@ for { set j 0} { $j < 6 } { incr j 1 } {
 		pack .f.top.$j -side top -fill x -anchor nw -padx 1 -pady 0
 	}
 
-label .f.top.0.0 -text "[string totitle Text]" -width 15 -font {MS 10}
-entry .f.top.0.1 -width 15 -font {MS 10}
-button .f.top.1.2 -text "提交" -width 15 -font {MS 10}
+label .f.top.0.0 -text "[string totitle Text]"\
+				 -width 15\
+				 -font {MS 10}
+				 
+entry .f.top.0.1 -textvariable ::panelGUI::entryValue\
+				 -width 15\
+				 -font {MS 10}\
+				 -relief groove
+				 
+button .f.top.1.2 -text "提交" -width 15 -font {MS 10}\
+				  -command [format "puts [.f.top.0.1 get]"]\
+				  -relief groove
 
 
 pack .f.top.0.0 -side left -anchor w -padx 1 -pady 0

@@ -45,7 +45,8 @@ proc create_label_button {loc line} {
 		-fg #000000 \
 		-height 1\
 		-width $::hmGUI::button_width\
-		-font {MS 10}
+		-font {MS 10} \
+		-relief groove
 		if {$n_cur==$num} { break }
 		set n_cur [expr $n_cur+1]
 	}
