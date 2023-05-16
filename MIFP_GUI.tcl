@@ -17,7 +17,7 @@ set ::hmGUI::label_width $width
 set ::hmGUI::button_width $width
 set ::hmGUI::name "快速建模平台"
 
-hm_setpanelheight 220
+hm_setpanelheight 200
 
 # 创建按键阵列：函数{位置，列表}
 proc create_label_button {loc line} {
@@ -60,9 +60,7 @@ pack .f.title -side top -fill both
 catch {pack .f.title.tLabel -side top}
 
 frame .f.top
-pack .f.top -side bottom -fill both;
-# frame .f.bottom
-# pack .f.bottom -side bottom -fill x -expand 0;
+pack .f.top -side bottom -fill both
 
 
 for { set i 1 } { $i < 12 } { incr i 1 } {
