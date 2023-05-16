@@ -1,10 +1,11 @@
 # MIFP
 
-![alt text](https://github.com/Ziarant/MIFP/tree/main/Splash/mesh.png?raw=true)
-
 ## 介绍
 - 用于Hypermesh前处理的快速有限元建模平台，主要面向Abaqus
 - 状态：施工中(Work-in-progress)
+
+![alt text](https://github.com/Ziarant/MIFP/tree/main/Splash/mesh.png?raw=true)
+
 ***
 
 ## 版本
@@ -37,7 +38,7 @@
     - [x] 体素化网格
 - [ ] 视图
 - [ ] 工具
-    - [ ] 材料本构曲线
+    - [ ] 材料曲线
 - [ ] Abaqus脚本
 - [ ] Abaqus子程序
 - [ ] 作业计算
