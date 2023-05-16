@@ -2,6 +2,7 @@
 
 ![alt text](https://github.com/Ziarant/MIFP/tree/main/Splash/mesh.png?raw=true)
 
+## 介绍
 - 用于Hypermesh前处理的快速有限元建模平台，主要面向Abaqus
 - 状态：施工中(Work-in-progress)
 ***
