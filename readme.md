@@ -1,6 +1,6 @@
 # MIFP
 
-![alt text](https://github.com/Ziarant/MIFP/tree/main/icons/bond.png)
+![alt text](https://github.com/Ziarant/MIFP/tree/main/icons/bond.png?raw=true)
 
 - 用于Hypermesh前处理的快速有限元建模平台，主要面向Abaqus
 - 状态：施工中(Work-in-progress)
@@ -36,6 +36,7 @@
     - [x] 体素化网格
 - [ ] 视图
 - [ ] 工具
+    - [ ] 材料本构曲线
 - [ ] Abaqus脚本
 - [ ] Abaqus子程序
 - [ ] 作业计算
