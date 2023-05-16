@@ -3,7 +3,7 @@
 ![image](https://github.com/Ziarant/MIFP/tree/main/icons/bond.png)
 
 - 用于Hypermesh前处理的快速有限元建模平台，主要面向Abaqus
-- Work-in-progress
+- 状态：施工中(Work-in-progress)
 ***
 
 ## 版本
@@ -14,13 +14,15 @@
 ## 功能列表
 
 - [ ] 自动化建模
+    - [ ] 创建流程
     - [ ] 自动保存
     - [x] 批量导入(.stl/.inp)
 - [ ] 快速创建
+    - [ ] 部位库
     - [x] 材料库
     - [x] 创建场输出(Abaqus默认)
     - [x] 创建分析步(Static-Step)
-    - [x] 批创建：接触控制
+    - [x] 创建接触控制
 - [x] 名称编辑
     - [x] Comp-添加前缀
     - [x] Comp-添加后缀

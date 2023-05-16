@@ -73,6 +73,7 @@ for { set i 1 } { $i < 12 } { incr i 1 } {
 
 # 按钮内容及调用代码
 set 	line "自动化"
+lappend line "{_创建流程} {}"
 lappend line "{自动保存} {AutoModel/AutoSave.tcl}"
 lappend line "{批量导入} {AutoModel/BatchInput.tcl}"
 lappend line "{项目定制} {AutoModel/projectModel.tcl}"
