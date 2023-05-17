@@ -83,6 +83,7 @@ lappend line "{部位库} {Body/BodyLibrary_GUI.tcl}"
 lappend line "{材料库} {Material/MatLibrary_GUI.tcl}"
 lappend line "{默认场输出} {AutoModel/CreatOutput.tcl}"
 lappend line "{Static-Step} {AutoModel/CreatStaticStep.tcl}"
+lappend line "{_接触对} {AutoModel/CreatContPair.tcl}"
 lappend line "{接触控制} {AutoModel/CreatCtrl.tcl}"
 create_label_button 2 $line
 
