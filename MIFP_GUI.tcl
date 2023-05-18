@@ -117,6 +117,7 @@ create_label_button 6 $line
 # -------------------
 set		line "工具"
 lappend line "{_材料曲线} {Tool/MatEdit.tcl}"
+lappend line "{名称编辑} {Tool/nameEditGUI.tcl}"
 lappend line "{模型检查} {Tool/ModelCheck.tcl}"
 create_label_button 7 $line
 
