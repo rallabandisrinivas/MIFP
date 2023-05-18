@@ -88,16 +88,6 @@ lappend line "{接触控制} {AutoModel/CreatCtrl.tcl}"
 create_label_button 2 $line
 
 # -------------------
-set 	line "名称编辑"
-lappend line "{Comp-添加前缀} {Component/hmCompNameEdit.tcl;comp_edit front}"
-lappend line "{Comp-添加后缀} {Component/hmCompNameEdit.tcl;comp_edit rear}"
-lappend line "{Comp-删除前缀} {Component/hmCompNameEdit.tcl;comp_edit delCompfront}"
-lappend line "{Comp-替换文本} {Component/hmCompNameEdit.tcl;comp_edit replaceComp}"
-lappend line "{Prop-删除前缀} {Component/hmCompNameEdit.tcl;comp_edit delPropfront}"
-lappend line "{Group-替换文本} {Component/hmCompNameEdit.tcl;comp_edit replaceGroup}"
-create_label_button 3 $line
-
-# -------------------
 set 	line "2D网格"
 lappend line "{_批创建：faces} {MeshEdit/batchCreatFaces.tcl}"
 lappend line "{包络网格} {MeshEdit/wrapMesh.tcl}"
@@ -151,7 +141,7 @@ create_label_button 11 $line
 for { set hloc 0 } { $hloc < 12 } { incr hloc 1 } {
 	for { set vloc 1 } { $vloc < 12 } { incr vloc 1 } {
 		catch {
-			pack .f.top.$vloc.$hloc -side top -anchor nw -padx 1 -pady 0
+			pack .f.top.$vloc.$hloc -side top -anchor nw -padx 0 -pady 0
 		}
 	}
 }

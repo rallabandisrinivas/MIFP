@@ -57,6 +57,7 @@ proc pushPanel {module} {
 	if {$module=="添加文本"} { set ::nameGUI::sheet 0}
 	if {$module=="删除文本"} { set ::nameGUI::sheet 1}
 	if {$module=="替换文本"} { set ::nameGUI::sheet 2}
+	if {$module=="其他工具"} { set ::nameGUI::sheet 3}
 	creatNamePanel $::nameGUI::sheet
 }
 
@@ -132,7 +133,13 @@ proc creatNamePanel {sheet} {
 		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit props addFront}"
 		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit props addFront}"
 		create_label_button 1 $line
-		}	
+		}
+		
+	# 第四页：其他工具
+	if {$sheet==3} {
+		set 	line "检查工具"
+		create_label_button 1 $line
+		}
 	
 		
 	# pack小部件设置
@@ -152,7 +159,7 @@ frame .f.side
 pack .f.side -side left -fill both
 
 set i 0
-foreach module {添加文本 删除文本 替换文本} {
+foreach module {添加文本 删除文本 替换文本 其他工具} {
     pack [radiobutton .f.side.$i -text $module -variable ::nameGUI::currentModule \
         -value $module \
 		-height 1\
