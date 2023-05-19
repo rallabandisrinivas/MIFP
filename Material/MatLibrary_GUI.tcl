@@ -46,7 +46,7 @@ proc create_label_button {loc line} {
 		-fg #000000 \
 		-height 1\
 		-width $::matGUI::button_width\
-		-font {MS 10}\
+		-font {MS 9}\
 		-relief groove
 		if {$n_cur==$num} { break }
 		set n_cur [expr $n_cur+1]
@@ -65,7 +65,7 @@ proc creatMatPanel {sheet} {
 	
 	destroy  .f.top
 	frame .f.top
-	pack .f.top -side left -fill both
+	pack .f.top -side top -fill both
 
 	# 材料矩阵
 	for { set j 1 } { $j < 12 } { incr j 1 } {
@@ -76,11 +76,11 @@ proc creatMatPanel {sheet} {
 	# 第一页：线弹性体
 	if {$sheet==0} {
 		set 	line "实体"
-		lappend line "{默 认(空白)} {creatMaterial.tcl;creatElasticMat Defult}"
+		lappend line "{默认(空白)} {creatMaterial.tcl;creatElasticMat Defult}"
 		lappend line "{Peek(572M)} {creatMaterial.tcl;creatElasticMat Peek}"
 		lappend line "{SawBone15(123M)} {creatMaterial.tcl;creatElasticMat SawBone15}"
 		lappend line "{钛(114G)} {creatMaterial.tcl;creatElasticMat Ti}"
-		lappend line "{不锈钢（220G）} {creatMaterial.tcl;creatElasticMat Steel}"
+		lappend line "{不锈钢(220G)} {creatMaterial.tcl;creatElasticMat Steel}"
 		create_label_button 1 $line
 
 		set 	line "颈椎"
@@ -161,8 +161,8 @@ proc creatMatPanel {sheet} {
 	}
 	
 	# pack小部件设置
-	for { set hloc 0 } { $hloc < 8 } { incr hloc 1 } {
-		for { set vloc 1 } { $vloc < 15 } { incr vloc 1 } {
+	for { set hloc 0 } { $hloc < 10 } { incr hloc 1 } {
+		for { set vloc 0 } { $vloc < 15 } { incr vloc 1 } {
 			catch {
 				pack .f.top.$vloc.$hloc -side top -anchor nw -padx 0 -pady 0
 			}

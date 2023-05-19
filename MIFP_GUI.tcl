@@ -66,13 +66,13 @@ frame .f
 # catch {pack .f.title.tLabel -side top}
 
 frame .f.top
-pack .f.top -side bottom -fill both
-
+pack .f.top -side top -fill both
 
 for { set i 1 } { $i < 12 } { incr i 1 } {
 	frame .f.top.$i
 	pack .f.top.$i -side left -fill x -anchor nw -padx 0 -pady 0
 }
+
 # -------------------------------------
 
 # 按钮内容及调用代码
@@ -149,17 +149,19 @@ create_label_button 10 $line
 # -------------------
 set		line "接口"
 lappend line "{面板测试} {Test/panelTest.tcl}"
+lappend line "{_更新} {API/update.tcl}"
 create_label_button 11 $line
 
 
 # pack小部件设置
 for { set hloc 0 } { $hloc < 12 } { incr hloc 1 } {
-	for { set vloc 1 } { $vloc < 12 } { incr vloc 1 } {
+	for { set vloc 0 } { $vloc < 12 } { incr vloc 1 } {
 		catch {
 			pack .f.top.$vloc.$hloc -side top -anchor nw -padx 0 -pady 0
 		}
 	}
 }
+
 
 # -----------------------
 hm_framework addpanel .f $::hmGUI::name
