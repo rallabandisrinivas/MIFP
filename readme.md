@@ -1,6 +1,6 @@
 # MIFP
 
-![alt text](https://github.com/Ziarant/MIFP/blob/main/Splash/Mesh.png?raw=true)
+![图标](./Splash/Mesh.png)
 
 ## 介绍
 - 用于Hypermesh前处理的快速有限元建模平台，主要面向Abaqus

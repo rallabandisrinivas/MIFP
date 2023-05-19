@@ -92,12 +92,18 @@ set 	line "2D网格"
 lappend line "{_批创建：faces} {MeshEdit/batchCreatFaces.tcl}"
 lappend line "{包络网格} {MeshEdit/wrapMesh.tcl}"
 lappend line "{_质量优化} {MeshEdit/optimizeElement.tcl}"
-create_label_button 4 $line
+create_label_button 3 $line
 
 # -------------------
 set		line "3D网格"
 lappend line "{体素化} {MeshEdit/meshVoxelization.tcl}"
 lappend line "{_范围选取} {MeshEdit/selectElement.tcl}"
+create_label_button 4 $line
+
+# -------------------
+set		line "分析"
+lappend line "{_标准实验} {}"
+lappend line "{_加载曲线} {}"
 create_label_button 5 $line
 
 # -------------------
