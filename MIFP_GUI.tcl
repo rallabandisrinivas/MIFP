@@ -97,6 +97,7 @@ create_label_button 2 $line
 set 	line "2D网格"
 lappend line "{_批创建：faces} {MeshEdit/batchCreatFaces.tcl}"
 lappend line "{包络网格} {MeshEdit/wrapMesh.tcl}"
+lappend line "{_网格修复} {MeshEdit/wrapMesh.tcl}"
 lappend line "{_质量优化} {MeshEdit/optimizeElement.tcl}"
 create_label_button 3 $line
 

@@ -129,10 +129,10 @@ proc creatMatPanel {sheet} {
 		set		line "腰椎韧带"
 		create_label_button 7 $line
 		
-		set		line "上肢"
+		set		line "头部"
 		create_label_button 8 $line
 		
-		set		line "下肢"
+		set		line "四肢"
 		create_label_button 9 $line
 		
 		set		line "手"
