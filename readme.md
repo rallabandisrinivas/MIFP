@@ -50,6 +50,11 @@
 	运行MIFP_GUI.tcl脚本进入MIFP面板
 
 - 方法2.设置快捷键
+    
+    在"菜单栏->Preferences->Keyboard Settings"中设置快捷键，映射到MIFP_GUI.tcl文件
+    
+![快捷键](./Splash/Keyboard.png)
+
 ***
 
 ## 更新日志

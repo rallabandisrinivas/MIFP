@@ -15,9 +15,13 @@ set width [expr {$panelWidth / $::hmGUI::button_cloumn / 10 + 1}]
 set ::hmGUI::filepath [file dirname [info script]]
 set ::hmGUI::label_width $width
 set ::hmGUI::button_width $width
-set ::hmGUI::name "快速建模平台"
+set ::hmGUI::name "MIFP:快速建模平台"
 
+# 设置面板高度
 hm_setpanelheight 200
+
+# 禁止向command文件写入view命令
+hm_writeviewcommands 0
 
 # 创建按键阵列：函数{位置，列表}
 proc create_label_button {loc line} {
@@ -55,9 +59,11 @@ proc create_label_button {loc line} {
 # 初始设置
 destroy .f
 frame .f
-frame .f.title
-pack .f.title -side top -fill both
-catch {pack .f.title.tLabel -side top}
+
+# frame .f.title
+# pack .f.title -side top -fill both
+# label .f.title.tLabel -text "MIFP:有限元建模平台" -font {MS 10}  -compound center -height 1 -fg #A00000
+# catch {pack .f.title.tLabel -side top}
 
 frame .f.top
 pack .f.top -side bottom -fill both
