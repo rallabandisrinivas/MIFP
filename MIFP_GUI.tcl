@@ -114,6 +114,7 @@ create_label_button 5 $line
 
 # -------------------
 set		line "视图"
+lappend line "{NoFitView} {View/NoFitViewGUI.tcl}"
 create_label_button 6 $line
 
 # -------------------
@@ -133,6 +134,8 @@ create_label_button 8 $line
 
 # -------------------
 set		line "Abaqus子程序"
+lappend line "{_Standard} {}"
+lappend line "{_Explicit} {}"
 create_label_button 9 $line
 
 # -------------------
