@@ -57,7 +57,8 @@ proc pushPanel {module} {
 	if {$module=="添加文本"} { set ::nameGUI::sheet 0}
 	if {$module=="删除文本"} { set ::nameGUI::sheet 1}
 	if {$module=="替换文本"} { set ::nameGUI::sheet 2}
-	if {$module=="其他工具"} { set ::nameGUI::sheet 3}
+	if {$module=="规范命名"} { set ::nameGUI::sheet 3}
+	if {$module=="其他工具"} { set ::nameGUI::sheet 4}
 	creatNamePanel $::nameGUI::sheet
 }
 
@@ -76,50 +77,50 @@ proc creatNamePanel {sheet} {
 	if {$sheet==0} {
 		set 	line "前缀"
 		lappend line "{Comps} {hmCompNameEdit.tcl;nameEdit comps addFront}"
-		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit props addFront}"
+		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit mats addFront}"
 		lappend line "{Props} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit props addFront}"
+		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit groups addFront}"
+		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit loads addFront}"
+		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit sets addFront}"
 		create_label_button 1 $line
 		
 		set 	line "后缀"
 		lappend line "{Comps} {hmCompNameEdit.tcl;nameEdit comps addRear}"
-		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit props addFront}"
+		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit mats addFront}"
 		lappend line "{Props} {hmCompNameEdit.tcl;nameEdit props addRear}"
-		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit props addFront}"
+		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit groups addFront}"
+		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit Loads addFront}"
+		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit sets addFront}"
 		create_label_button 2 $line
 		}
 		
 	# 第二页：删除文本
 	if {$sheet==1} {
 		set 	line "前缀"
-		lappend line "{Comps} {hmCompNameEdit.tcl;nameEdit comps addFront}"
-		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Props} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit props addFront}"
+		lappend line "{Comps} {hmCompNameEdit.tcl;nameEdit comps delFront}"
+		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit mats delFront}"
+		lappend line "{Props} {hmCompNameEdit.tcl;nameEdit props delFront}"
+		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit groups delFront}"
+		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit loads delFront}"
+		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit sets delFront}"
 		create_label_button 1 $line
 		
 		set 	line "后缀"
-		lappend line "{Comps} {hmCompNameEdit.tcl;nameEdit comps addFront}"
-		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Props} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit props addFront}"
+		lappend line "{Comps} {hmCompNameEdit.tcl;nameEdit comps delRear}"
+		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit mats delRear}"
+		lappend line "{Props} {hmCompNameEdit.tcl;nameEdit props delRear}"
+		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit groups delRear}"
+		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit loads delRear}"
+		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit sets delRear}"
 		create_label_button 2 $line
 		
 		set 	line "任意位置"
-		lappend line "{Comps} {hmCompNameEdit.tcl;nameEdit comps addFront}"
-		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Props} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit props addFront}"
+		lappend line "{Comps} {hmCompNameEdit.tcl;nameEdit comps anyWhere}"
+		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit mats anyWhere}"
+		lappend line "{Props} {hmCompNameEdit.tcl;nameEdit props anyWhere}"
+		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit groups anyWhere}"
+		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit loads anyWhere}"
+		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit sets anyWhere}"
 		create_label_button 3 $line
 		}
 		
@@ -135,8 +136,14 @@ proc creatNamePanel {sheet} {
 		create_label_button 1 $line
 		}
 		
-	# 第四页：其他工具
+	# 第四页：规范命名
 	if {$sheet==3} {
+		set 	line "驼峰命名"
+		create_label_button 1 $line
+		}
+		
+	# 第五页：其他工具
+	if {$sheet==4} {
 		set 	line "检查工具"
 		create_label_button 1 $line
 		}
@@ -159,7 +166,7 @@ frame .f.side
 pack .f.side -side left -fill both
 
 set i 0
-foreach module {添加文本 删除文本 替换文本 其他工具} {
+foreach module {添加文本 删除文本 替换文本 规范命名 其他工具} {
     pack [radiobutton .f.side.$i -text $module -variable ::nameGUI::currentModule \
         -value $module \
 		-height 1\

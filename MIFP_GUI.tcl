@@ -18,7 +18,7 @@ set ::hmGUI::button_width $width
 set ::hmGUI::name "MIFP:快速建模平台"
 
 # 设置面板高度
-hm_setpanelheight 200
+hm_setpanelheight 220
 
 # 禁止向command文件写入view命令
 hm_writeviewcommands 0

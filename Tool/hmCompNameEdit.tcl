@@ -5,87 +5,98 @@
 # -------------------------------------
 
 
-proc comp_edit {type} {
-	# type : front rear replace
+proc nameEdit {entityType opera} {
+
+	# 选择Entities
+	*createmarkpanel $entityType 1 "select the entities"
+	set entitiesId [hm_getmark $entityType 1]
+	if {$entitiesId == []} { return [] }
+
 	# 增加前缀
-	if {[string equal $type "front"]} {
-
-		*createmarkpanel comps 1 "select the comps"
-		set compsId [hm_getmark comps 1]
-		if {$compsId == []} { return [] }
+	if {[string equal $opera "addFront"]} {
 		set str [hm_getstring "Addfront=" "input string"]
-
-		foreach compId $compsId {
-			set compName [hm_entityinfo name comps $compId]
-			set fullStr "$str $compName"
+		foreach entityId $entitiesId {
+			set entityName [hm_entityinfo name $entityType $entityId]
+			set fullStr "$str $entityName"
 			set fullStr [join $fullStr "_"]
-			*renamecollector components "$compName" "$fullStr"
-		 } 
-
+			*renamecollector $entityType "$entityName" "$fullStr"
+		 }
 	}
 
 	# 增加后缀
-	if {[string equal $type "rear"]} {
-
-		*createmarkpanel comps 1 "select the comps"
-		set compsId [hm_getmark comps 1]
-		if {$compsId == []} { return [] }
-		set str [hm_getstring "rear=" "input string"]
-
-		foreach compId $compsId {
-			set compName [hm_entityinfo name comps $compId]
-			set fullStr "$compName $str"
+	if {[string equal $opera "addRear"]} {
+		set str [hm_getstring "AddRear=" "input string"]
+		foreach entityId $entitiesId {
+			set entityName [hm_entityinfo name $entityType $entityId]
+			set fullStr "$entityName $str"
 			set fullStr [join $fullStr "_"]
-			*renamecollector components "$compName" "$fullStr"
+			*renamecollector $entityType "$entityName" "$fullStr"
 		 } 
+	}
+	
+	# 删除前缀
+	if {[string equal $opera "delFront"]} {
+		set str [hm_getstring "delFront=" "input string"]
+		set strLength [string length $str]
+		foreach entityId $entitiesId {
+			set entityName [hm_entityinfo name $entityType $entityId]
+			set entityNameLength [string length $entityName]
+			if {$entityNameLength > $strLength} {
+				set prefix [string range $entityName 0 $strLength-1]
+				if {$prefix == $str} {
+					set fullStr [string range $entityName $strLength end]
+				} else {
+					return
+				}
+			}
+			*renamecollector $entityType "$entityName" "$fullStr"
+		 } 
+	}
+	
+	# 删除后缀
+	if {[string equal $opera "delRear"]} {
+		set str [hm_getstring "delRear=" "input string"]
+		set strLength [string length $str]
+		foreach entityId $entitiesId {
+			set entityName [hm_entityinfo name $entityType $entityId]
+			set entityNameLength [string length $entityName]
+			set index [expr $entityNameLength - $strLength]
+			if {$entityNameLength > $strLength} {
+				set suffix [string range $entityName $index end]
+				if {$suffix == $str} {
+					set fullStr [string range $entityName 0 $index-1]
+				} else {
+					return
+				}
+			}
+			*renamecollector $entityType "$entityName" "$fullStr"
+		 } 
+	}
+	
+	# 删除文本
+	if {[string equal $opera "delRear"]} {
+		set str [hm_getstring "delRear=" "input string"]
+		set strLength [string length $str]
+		foreach entityId $entitiesId {
+			set entityName [hm_entityinfo name $entityType $entityId]
+			set entityNameLength [string length $entityName]
+			set index [expr $entityNameLength - $strLength]
+			if {$entityNameLength > $strLength} {
+				set suffix [string range $entityName $index end]
+				if {$suffix == $str} {
+					set fullStr [string range $entityName 0 $index-1]
+				} else {
+					return
+				}
+			}
+			*renamecollector $entityType "$entityName" "$fullStr"
+		 } 
+	}
+}
+	
 
-	}
-	
-	# 删除Comp前缀
-	if {[string equal $type "delCompfront"]} {
-		*createmarkpanel comps 1 "select the comps"
-		set compsId [hm_getmark comps 1]
-		if {$compsId == []} { return [] }
-		set str [hm_getstring "Delfront=" "input string"]
-		set strLength [string length $str]
-		
-		foreach compId $compsId {
-			set compName [hm_entityinfo name comps $compId]
-			set compNameLength [string length $compName]
-			if {$compNameLength > $strLength} {
-				set prefix [string range $compName 0 $strLength-1]
-				if {$prefix == $str} {
-					set fullStr [string range $compName $strLength end]
-				} else {
-					set fullStr "$compName"
-				}
-			}
-			*renamecollector components "$compName" "$fullStr"
-		 }
-	}
-	
-	# 删除Prop前缀
-	if {[string equal $type "delPropfront"]} {
-		*createmarkpanel props 1 "select the comps"
-		set compsId [hm_getmark props 1]
-		if {$compsId == []} { return [] }
-		set str [hm_getstring "Delfront=" "input string"]
-		set strLength [string length $str]
-		
-		foreach compId $compsId {
-			set compName [hm_entityinfo name props $compId]
-			set compNameLength [string length $compName]
-			if {$compNameLength > $strLength} {
-				set prefix [string range $compName 0 $strLength-1]
-				if {$prefix == $str} {
-					set fullStr [string range $compName $strLength end]
-				} else {
-					set fullStr "$compName"
-				}
-			}
-			*renamecollector properties "$compName" "$fullStr"
-		 }
-	}
+proc comp_edit {type} {
+	# type : front rear replace
 
 	# 替换Comp文档
 	if {[string equal $type "replaceComp"]} {
