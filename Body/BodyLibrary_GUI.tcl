@@ -131,6 +131,66 @@ proc creatBodyPanel {sheet} {
 		create_label_button 9 $line
 		}
 		
+	# 第三页：肌肉系统	
+	if {$sheet==2} {
+		set 	line "头部"
+		create_label_button 1 $line
+		
+		set 	line "口腔"
+		create_label_button 2 $line
+		
+		set 	line "颈椎"
+		create_label_button 3 $line
+		
+		set 	line "胸椎"
+		create_label_button 4 $line
+		
+		set 	line "腰椎"
+		create_label_button 5 $line
+		
+		set 	line "骨盆"
+		create_label_button 6 $line
+		
+		set 	line "四肢"
+		create_label_button 7 $line
+		
+		set 	line "手"
+		create_label_button 8 $line
+		
+		set 	line "足"
+		create_label_button 9 $line
+		}
+		
+	# 第四页：病变组织	
+	if {$sheet==3} {
+		set 	line "头部"
+		create_label_button 1 $line
+		
+		set 	line "口腔"
+		create_label_button 2 $line
+		
+		set 	line "颈椎"
+		create_label_button 3 $line
+		
+		set 	line "胸椎"
+		create_label_button 4 $line
+		
+		set 	line "腰椎"
+		create_label_button 5 $line
+		
+		set 	line "骨盆"
+		create_label_button 6 $line
+		
+		set 	line "四肢"
+		create_label_button 7 $line
+		
+		set 	line "手"
+		create_label_button 8 $line
+		
+		set 	line "足"
+		create_label_button 9 $line
+		}
+		
 	# pack小部件设置
 	for { set hloc 0 } { $hloc < 10 } { incr hloc 1 } {
 		for { set vloc 0 } { $vloc < 15 } { incr vloc 1 } {
