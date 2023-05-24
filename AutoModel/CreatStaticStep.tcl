@@ -5,7 +5,7 @@
 
 # 创建分析步
 set stepId [expr [hm_entityinfo maxid loadstep]+1]
-*createentity loadsteps includeid=0 name="Step-1"
+*createentity loadsteps includeid=0 name="Step-$stepId"
 # 包含全部outputblock, group, load
 set loadIds [hm_entitylist loadcols id]
 set groupIds [hm_entitylist group id]

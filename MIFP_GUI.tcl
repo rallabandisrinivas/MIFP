@@ -18,7 +18,7 @@ set ::hmGUI::button_width $width
 set ::hmGUI::name "MIFP:快速建模平台"
 
 # 设置面板高度
-hm_setpanelheight 220
+hm_setpanelheight 240
 
 # 禁止向command文件写入view命令
 hm_writeviewcommands 0
@@ -49,7 +49,7 @@ proc create_label_button {loc line} {
 		-fg #000000 \
 		-height 1\
 		-width $::hmGUI::button_width\
-		-font {MS 10} \
+		-font {MS 9} \
 		-relief groove
 		if {$n_cur==$num} { break }
 		set n_cur [expr $n_cur+1]
@@ -88,6 +88,7 @@ set 	line "快速创建"
 lappend line "{部位库} {Body/BodyLibrary_GUI.tcl}"
 lappend line "{材料库} {Material/MatLibrary_GUI.tcl}"
 lappend line "{默认场输出} {AutoModel/CreatOutput.tcl}"
+lappend line "{接触历程输出} {AutoModel/CreatContOutput.tcl}"
 lappend line "{Static-Step} {AutoModel/CreatStaticStep.tcl}"
 lappend line "{_接触对} {AutoModel/CreatContPair.tcl}"
 lappend line "{接触控制} {AutoModel/CreatCtrl.tcl}"
@@ -162,7 +163,6 @@ for { set hloc 0 } { $hloc < 12 } { incr hloc 1 } {
 		}
 	}
 }
-
 
 # -----------------------
 hm_framework addpanel .f $::hmGUI::name

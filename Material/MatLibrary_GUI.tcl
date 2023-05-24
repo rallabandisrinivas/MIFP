@@ -134,6 +134,13 @@ proc creatMatPanel {sheet} {
 		set col [create_label_button $col $line]
 		
 		set		line "腰椎韧带"
+		lappend line "{前纵韧带(5)} {creatMaterial.tcl;creat1DElasticMat L_ALL}"
+		lappend line "{后纵韧带(5)} {creatMaterial.tcl;creat1DElasticMat L_PLL}"
+		lappend line "{黄韧带(4)} {creatMaterial.tcl;creat1DElasticMat L_LF}"
+		lappend line "{棘间韧带(10)} {creatMaterial.tcl;creat1DElasticMat L_ISL}"
+		lappend line "{棘上韧带(10)} {creatMaterial.tcl;creat1DElasticMat L_SSL}"
+		lappend line "{关节囊韧带(15)} {creatMaterial.tcl;creat1DElasticMat L_JCL}"
+		lappend line "{横间突韧带(15)} {creatMaterial.tcl;creat1DElasticMat L_ITL}"
 		set col [create_label_button $col $line]
 		
 		set		line "头部"
@@ -146,6 +153,10 @@ proc creatMatPanel {sheet} {
 		set col [create_label_button $col $line]
 		
 		set		line "足"
+		set col [create_label_button $col $line]
+		
+		set		line "其他"
+		lappend line "{纤维环纤维} {creatMaterial.tcl;creat1DElasticMat Fibers}"
 		set col [create_label_button $col $line]
 	}
 

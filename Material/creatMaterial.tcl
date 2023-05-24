@@ -45,14 +45,24 @@ set ::Mat::Elastic(L_AF) [list 4.2 0.4]
 set ::Mat::Elastic(L_NP) [list 1 0.48]
 set ::Mat::Elastic(L_FACET) [list 10 0.4]
 
-# 线弹性材料:Elastic(名称) [弹性模量(MPa) 泊松比 截面积 密度]
-set ::Mat::Elastic1D(C_TL) [list 17.1 0.4 0.62]
-set ::Mat::Elastic1D(C_AL) [list 11.4 0.4 0.4]
-set ::Mat::Elastic1D(C_ALL) [list 30 0.4 0.61]
-set ::Mat::Elastic1D(C_PLL) [list 20 0.4 0.54]
-set ::Mat::Elastic1D(C_LF) [list 10 0.4 8.5]
-set ::Mat::Elastic1D(C_ISL) [list 10 0.4 1.31]
-set ::Mat::Elastic1D(C_JCL) [list 20 0.4 5.1]
+# 线弹性材料:Elastic(名称) [弹性模量(MPa) 泊松比 截面积 ?不可压缩 密度]
+set ::Mat::Elastic1D(C_TL) [list 17.1 0.4 0.62 1]
+set ::Mat::Elastic1D(C_AL) [list 11.4 0.4 0.4 1]
+set ::Mat::Elastic1D(C_ALL) [list 30 0.4 0.61 1]
+set ::Mat::Elastic1D(C_PLL) [list 20 0.4 0.54 1]
+set ::Mat::Elastic1D(C_LF) [list 10 0.4 8.5 1]
+set ::Mat::Elastic1D(C_ISL) [list 10 0.4 1.31 1]
+set ::Mat::Elastic1D(C_JCL) [list 20 0.4 5.1 1]
+
+set ::Mat::Elastic1D(L_ALL) [list 7.8 0.3 15.0 1]
+set ::Mat::Elastic1D(L_PLL) [list 10.0 0.3 2.0 1]
+set ::Mat::Elastic1D(L_LF) [list 15.0 0.3 3.0 1]
+set ::Mat::Elastic1D(L_ISL) [list 10.0 0.4 1.5 1]
+set ::Mat::Elastic1D(L_SSL) [list 10.0 0.4 16.0 1]
+set ::Mat::Elastic1D(L_JCL) [list 7.5 0.4 0.3 1]
+set ::Mat::Elastic1D(L_ITL) [list 10 0.4 0.2 1]
+
+set ::Mat::Elastic1D(Fibers) [list 400 0.3 0.00015 1]
 
 # 线弹性材料:Elastic(名称) [弹性模量(MPa) 泊松比 屈服强度List 密度]
 set ::Mat::Plastic(Porous_Diamond) [list 1985.96 0.3 [list 65.34 0]]
@@ -75,7 +85,7 @@ proc creat1DElasticMat {name} {
 	set E [lindex $::Mat::Elastic1D($name) 0]
 	set NU [lindex $::Mat::Elastic1D($name) 1]
 	set AREA [lindex $::Mat::Elastic1D($name) 2]
-	set noCompress 1
+	set noCompress [lindex $::Mat::Elastic1D($name) 3]
 	
 	# 设置材料、属性
 	createElasticMaterial $name $E $NU $noCompress

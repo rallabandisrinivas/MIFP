@@ -127,12 +127,12 @@ proc creatNamePanel {sheet} {
 	# 第三页：替换文本
 	if {$sheet==2} {
 		set 	line "任意位置"
-		lappend line "{Comps} {hmCompNameEdit.tcl;nameEdit comps addFront}"
-		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Props} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit props addFront}"
-		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit props addFront}"
+		lappend line "{Comps} {hmCompNameEdit.tcl;nameEdit comps replace}"
+		lappend line "{Materials} {hmCompNameEdit.tcl;nameEdit mats replace}"
+		lappend line "{Props} {hmCompNameEdit.tcl;nameEdit props replace}"
+		lappend line "{Groups} {hmCompNameEdit.tcl;nameEdit groups replace}"
+		lappend line "{Loads} {hmCompNameEdit.tcl;nameEdit loads replace}"
+		lappend line "{Sets} {hmCompNameEdit.tcl;nameEdit sets replace}"
 		create_label_button 1 $line
 		}
 		

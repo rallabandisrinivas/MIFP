@@ -92,6 +92,20 @@ proc nameEdit {entityType opera} {
 			*renamecollector $entityType "$entityName" "$fullStr"
 		 } 
 	}
+	
+	# 替换文本
+	if {[string equal $opera "replace"]} {
+		set inputStr [hm_getstring "oldString NewString=" "input string"]
+		set oldString [lindex $inputStr 0]
+		set newString [lindex $inputStr 1]
+		foreach entityId $entitiesId {
+			set entityName [hm_entityinfo name $entityType $entityId]
+			catch {
+				set fullStr [string map "$oldString $newString" $entityName]
+				*renamecollector $entityType "$entityName" "$fullStr"
+			}
+		 } 
+	}
 }
 	
 
