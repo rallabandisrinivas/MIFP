@@ -143,7 +143,7 @@ set col [create_label_button $col $line]
 
 # -------------------
 set 	line "2D网格"
-lappend line "{创建：faces} {MeshEdit/batchCreatFaces.tcl} {在comps上创建该comps单元的faces}"
+lappend line "{批量创建：faces} {MeshEdit/batchCreatFaces.tcl} {在comps上创建该comps单元的faces}"
 lappend line "{包络网格} {MeshEdit/wrapMesh.tcl} {创建2D面网格，将所选comps完全包络}"
 lappend line "{_网格修复} {MeshEdit/wrapMesh.tcl}"
 lappend line "{_质量优化} {MeshEdit/optimizeElement.tcl}"
