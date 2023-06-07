@@ -23,6 +23,40 @@ hm_setpanelheight 240
 # 禁止向command文件写入view命令
 hm_writeviewcommands 0
 
+namespace eval ::annotation {
+	variable label
+}
+set ::annotation::label [dict create]
+
+# 定义鼠标进入Button时的事件处理函数
+proc enterButton {annotation} {
+	set ann [dict get $::annotation::label $annotation]
+	
+	if {[string length $ann] == 0 } {
+		return
+	}
+
+	# 创建对应的Tooltip控件
+	toplevel .f.top.tooltip 
+	wm overrideredirect .f.top.tooltip 1
+	label .f.top.tooltip.label -text $ann
+	pack .f.top.tooltip.label -padx 5 -pady 5
+	# 显示对应的Tooltip控件
+	wm deiconify .f.top.tooltip
+	# 将Tooltip控件移动到鼠标位置
+	set x [winfo pointerx .]
+	set y [winfo pointery .]
+	wm geometry .f.top.tooltip +[expr $x+10]+[expr $y+10]
+}
+
+# 定义鼠标离开Button时的事件处理函数
+proc leaveButton {} {
+	# 隐藏对应的Tooltip控件
+	catch {
+		destroy .f.top.tooltip
+	}
+}
+
 # 创建按键阵列：函数{位置，列表}
 proc create_label_button {loc line} {
 
@@ -41,6 +75,8 @@ proc create_label_button {loc line} {
 			set BTstate normal
 		}
 		set file_command [lindex $button_data 1]
+		
+		# 创建Button属性
 		button .f.top.$loc.$n_cur \
 		-text "$name" \
 		-command [format "source %s/%s" $::hmGUI::filepath $file_command]\
@@ -51,9 +87,19 @@ proc create_label_button {loc line} {
 		-width $::hmGUI::button_width\
 		-font {MS 9} \
 		-relief groove
+
+		global .f.top.$loc.$n_cur.annotation 
+		set .f.top.$loc.$n_cur.annotation [lindex $button_data 2]
+		dict set ::annotation::label .f.top.$loc.$n_cur.annotation [lindex $button_data 2] 
+		# 将事件处理函数绑定到Button的鼠标进入和离开事件
+		bind .f.top.$loc.$n_cur <Enter> {enterButton %W.annotation}
+		bind .f.top.$loc.$n_cur <Leave> {leaveButton}
+		
 		if {$n_cur==$num} { break }
 		set n_cur [expr $n_cur+1]
 	}
+	set loc [expr $loc+1]
+	return $loc
 }
 
 # 初始设置
@@ -68,64 +114,65 @@ frame .f
 frame .f.top
 pack .f.top -side top -fill both
 
-for { set i 1 } { $i < 12 } { incr i 1 } {
+for { set i 0 } { $i < 12 } { incr i 1 } {
 	frame .f.top.$i
 	pack .f.top.$i -side left -fill x -anchor nw -padx 0 -pady 0
 }
 
 # -------------------------------------
+set col 0
 
 # 按钮内容及调用代码
 set 	line "自动化"
 lappend line "{_创建流程} {}"
-lappend line "{自动保存} {AutoModel/AutoSave.tcl}"
-lappend line "{批量导入} {AutoModel/BatchInput.tcl}"
+lappend line "{自动保存} {AutoModel/AutoSave.tcl} {检测无操作1min自动保存修改模型}"
+lappend line "{批量导入} {AutoModel/BatchInput.tcl} {批量导入文件：inp或stl}"
 lappend line "{项目定制} {AutoModel/projectModel.tcl}"
-create_label_button 1 $line
+set col [create_label_button $col $line]
 
 # -------------------
 set 	line "快速创建"
-lappend line "{部位库} {Body/BodyLibrary_GUI.tcl}"
-lappend line "{材料库} {Material/MatLibrary_GUI.tcl}"
-lappend line "{默认场输出} {AutoModel/CreatOutput.tcl}"
-lappend line "{接触历程输出} {AutoModel/CreatContOutput.tcl}"
-lappend line "{Static-Step} {AutoModel/CreatStaticStep.tcl}"
+lappend line "{部位库} {Body/BodyLibrary_GUI.tcl} {一键导入部位2D面网格}"
+lappend line "{材料库} {Material/MatLibrary_GUI.tcl} {一键创建常用的材料属性和对应截面属性}"
 lappend line "{_接触对} {AutoModel/CreatContPair.tcl}"
-lappend line "{接触控制} {AutoModel/CreatCtrl.tcl}"
-create_label_button 2 $line
+lappend line "{接触控制} {AutoModel/CreatCtrl.tcl} {选择接触并创建对应的默认接触控制}"
+lappend line "{默认输出} {AutoModel/CreatOutput.tcl} {创建Abaqus默认的场输出和历程输出}"
+lappend line "{接触历程输出} {AutoModel/CreatContOutput.tcl} {选择接触并创建对应的接触面积、接触力等历程输出}"
+lappend line "{新建Step} {AutoModel/CreatStaticStep.tcl} {创建默认属性的Static Step}"
+set col [create_label_button $col $line]
 
 # -------------------
 set 	line "2D网格"
-lappend line "{_批创建：faces} {MeshEdit/batchCreatFaces.tcl}"
-lappend line "{包络网格} {MeshEdit/wrapMesh.tcl}"
+lappend line "{创建：faces} {MeshEdit/batchCreatFaces.tcl} {在comps上创建该comps单元的faces}"
+lappend line "{包络网格} {MeshEdit/wrapMesh.tcl} {创建2D面网格，将所选comps完全包络}"
 lappend line "{_网格修复} {MeshEdit/wrapMesh.tcl}"
 lappend line "{_质量优化} {MeshEdit/optimizeElement.tcl}"
-create_label_button 3 $line
+set col [create_label_button $col $line]
 
 # -------------------
 set		line "3D网格"
-lappend line "{体素化} {MeshEdit/meshVoxelization.tcl}"
+lappend line "{体素化} {MeshEdit/meshVoxelization.tcl} {将comps体素化为C3D8立方体单元网格}"
 lappend line "{_范围选取} {MeshEdit/selectElement.tcl}"
-create_label_button 4 $line
+set col [create_label_button $col $line]
 
 # -------------------
 set		line "分析"
 lappend line "{_标准实验} {}"
 lappend line "{_加载曲线} {}"
-create_label_button 5 $line
+set col [create_label_button $col $line]
 
 # -------------------
 set		line "视图"
-lappend line "{NoFitView} {View/NoFitViewGUI.tcl}"
-create_label_button 6 $line
+lappend line "{NoFitView} {View/NoFitViewGUI.tcl} {不缩放的标准视图}"
+set col [create_label_button $col $line]
 
 # -------------------
 set		line "工具"
-lappend line "{_材料曲线} {Tools/MatEdit.tcl}"
+lappend line "{_材料曲线} {Tools/MatEdit.tcl} {根据输入的材料属性绘制对应的应力应变曲线}"
 lappend line "{名称编辑} {Tools/nameEditGUI.tcl}"
+lappend line "{模型变换} {Tools/modelChangeGUI.tcl} {基于Inp或Odb等，变换模型网格结构}"
 lappend line "{模型检查} {Tools/ModelCheck.tcl}"
-lappend line "{设置} {Tools/settingGUI.tcl}"
-create_label_button 7 $line
+set col [create_label_button $col $line]
 
 # -------------------
 set		line "Abaqus脚本"
@@ -133,13 +180,13 @@ lappend line "{_运行Abaqus} {}"
 lappend line "{_循环计算} {}"
 lappend line "{_骨生长设置} {}"
 lappend line "{_骨吸收设置} {}"
-create_label_button 8 $line
+set col [create_label_button $col $line]
 
 # -------------------
 set		line "Abaqus子程序"
 lappend line "{_Standard} {}"
 lappend line "{_Explicit} {}"
-create_label_button 9 $line
+set col [create_label_button $col $line]
 
 # -------------------
 set		line "作业计算"
@@ -147,13 +194,14 @@ lappend line "{Job设置} {Analysis/jobSet.tcl}"
 lappend line "{_Job提交} {Analysis/jobSubmit.tcl}"
 lappend line "{_Job监控} {Analysis/jobMonitor.tcl}"
 lappend line "{_Job批处理} {Analysis/jobBatch.tcl}"
-create_label_button 10 $line
+set col [create_label_button $col $line]
 
 # -------------------
 set		line "接口"
+lappend line "{设置} {Setting/settingGUI.tcl} {MIFP平台设置}"
 lappend line "{面板测试} {Test/panelTest.tcl}"
-lappend line "{_更新} {API/update.tcl}"
-create_label_button 11 $line
+lappend line "{更新} {Setting/update.tcl} {检查并下载更新}"
+set col [create_label_button $col $line]
 
 
 # pack小部件设置
