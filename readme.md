@@ -11,6 +11,8 @@
 ## 版本
 
 - Hypermesh2021
+- Abaqus2021
+
 ***
 
 ## 功能列表
@@ -68,6 +70,7 @@
     在"菜单栏->Preferences->Keyboard Settings"中设置快捷键，映射到MIFP_GUI.tcl文件
     
 ![快捷键](./Splash/Keyboard.png)
+![主面板](./Splash/Panel.png)
 
 ***
 
