@@ -163,14 +163,15 @@ set col [create_label_button $col $line]
 
 # -------------------
 set		line "视图"
-lappend line "{NoFitView} {View/NoFitViewGUI.tcl} {不缩放的标准视图}"
+lappend line "{_NoFitView} {View/NoFitViewGUI.tcl} {不缩放的标准视图}"
+lappend line "{_用户视图} {} {保存和调用视图状态}"
 set col [create_label_button $col $line]
 
 # -------------------
 set		line "工具"
 lappend line "{_材料曲线} {Tools/MatEdit.tcl} {根据输入的材料属性绘制对应的应力应变曲线}"
 lappend line "{名称编辑} {Tools/nameEditGUI.tcl}"
-lappend line "{模型变换} {Tools/modelChangeGUI.tcl} {基于Inp或Odb等，变换模型网格结构}"
+lappend line "{_模型变换} {Tools/modelChangeGUI.tcl} {基于Inp或Odb等，变换模型网格结构}"
 lappend line "{模型检查} {Tools/ModelCheck.tcl}"
 set col [create_label_button $col $line]
 
@@ -199,7 +200,6 @@ set col [create_label_button $col $line]
 # -------------------
 set		line "接口"
 lappend line "{设置} {Setting/settingGUI.tcl} {MIFP平台设置}"
-lappend line "{面板测试} {Test/panelTest.tcl}"
 lappend line "{更新} {Setting/update.tcl} {检查并下载更新}"
 set col [create_label_button $col $line]
 
