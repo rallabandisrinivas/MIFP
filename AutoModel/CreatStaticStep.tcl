@@ -10,9 +10,11 @@ set stepId [expr [hm_entityinfo maxid loadstep]+1]
 set loadIds [hm_entitylist loadcols id]
 set groupIds [hm_entitylist group id]
 set outputIds [hm_entitylist outputblocks id]
+set curveIDs [hm_entitylist curve id]
 *setvalue loadsteps id=$stepId ids={loadcols $loadIds}
 *setvalue loadsteps id=$stepId groups_ids={groups $groupIds}
 *setvalue loadsteps id=$stepId ob_ids={outputblocks $outputIds}
+*setvalue loadsteps id=$stepId curve_ids={curves $curveIDs}
 # 设置Step参数
 *startnotehistorystate {Attached attributes to loadstep "Step"}
 *setvalue loadsteps id=1 STATUS=2 1425=2

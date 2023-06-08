@@ -1,9 +1,6 @@
-# HWVERSION_2021.0.0.33_Jan 14 2021_21:19:15 
-##  Filename:   hmCreateSphElem.tcl
-##  Purpose:    TCL file to run SPH ELEMENT Creation For Abaqus user profile
-##  Version:    HyperWorks 12.0-110
-##  Copyright:  2002 Altair Engineering Inc., All rights reserved.
-##############################################################################
+# hypermesh 2021
+# 创建SPH模型
+
 source [file join [hm_info -appinfo SPECIFIEDPATH hw_tcl_common] "hw" "collector" "hwcollector.tcl"]
 namespace  eval ::CreateSphElem_gui:: {
     variable rowUp;

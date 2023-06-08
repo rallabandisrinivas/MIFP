@@ -14,10 +14,11 @@ namespace eval ::bodyGUI {
 if {[info exists ::bodyGUI::sheet]==0}				{set ::bodyGUI::sheet 0}
 if {[info exists ::bodyGUI::currentModule]==0}		{set ::bodyGUI::currentModule 骨格系统}
 
+set panelWidth [lindex [hm_getpanelarea] 2]
 set width [expr {$panelWidth / $::bodyGUI::button_cloumn / 10 + 1}]
 set ::bodyGUI::button_width $width
 set ::bodyGUI::filepath [file dirname [info script]]
-set ::bodyGUI::label_width $::matGUI::button_width
+set ::bodyGUI::label_width $::bodyGUI::button_width
 set ::bodyGUI::name "部位库"
 
 # 创建按键阵列：函数{位置，列表}
@@ -26,7 +27,7 @@ proc create_label_button {loc line} {
 	set line_title [lindex $line 0]
 	set line_button [lrange $line 1 end]
 
-	label .f.top.$loc.0  -text "$line_title" -width $::matGUI::label_width -font {MS 10}  -compound center -height 1 -fg #A00000
+	label .f.top.$loc.0  -text "$line_title" -width $::bodyGUI::label_width -font {MS 10}  -compound center -height 1 -fg #A00000
 	set num [llength $line_button]
 	set n_cur 1
 	foreach button_data $line_button {
@@ -40,12 +41,12 @@ proc create_label_button {loc line} {
 		set file_command [lindex $button_data 1]
 		button .f.top.$loc.$n_cur \
 		-text "$name" \
-		-command [format "source %s/%s" $::matGUI::filepath $file_command]\
+		-command [format "source %s/%s" $::bodyGUI::filepath $file_command]\
 		-state $BTstate\
 		-background #F0F0F0 \
 		-fg #000000 \
 		-height 1\
-		-width $::matGUI::button_width\
+		-width $::bodyGUI::button_width\
 		-font {MS 10}
 		if {$n_cur==$num} { break }
 		set n_cur [expr $n_cur+1]

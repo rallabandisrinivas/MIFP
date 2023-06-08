@@ -29,7 +29,7 @@ foreach groupId $groupsId {
 	*setvalue outputblocks id=$historyOutputId STATUS=2 1603=1
 	*setvalue outputblocks id=$historyOutputId STATUS=0 1616=1
 	# 设置输出参数
-	*setvalue outputblocks id=$historyOutputId STATUS=2 ROW=0 1617= {CFN1, CFN2, CFN3, CFNM}
+	*setvalue outputblocks id=$historyOutputId STATUS=2 ROW=0 1617= {CAREA, CFN1, CFN2, CFN3, CFNM}
 	
 	# 设置主从面
 	*setvalue outputblocks id=$historyOutputId STATUS=2 1608=1

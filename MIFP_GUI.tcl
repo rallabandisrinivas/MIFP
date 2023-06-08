@@ -126,7 +126,7 @@ set col 0
 set 	line "自动化"
 lappend line "{_创建流程} {}"
 lappend line "{自动保存} {AutoModel/AutoSave.tcl} {检测无操作1min自动保存修改模型}"
-lappend line "{批量导入} {AutoModel/BatchInput.tcl} {批量导入文件：inp或stl}"
+lappend line "{批量导入} {AutoModel/BatchImport.tcl} {批量导入文件：inp或stl}"
 lappend line "{项目定制} {AutoModel/projectModel.tcl}"
 set col [create_label_button $col $line]
 
@@ -137,7 +137,7 @@ lappend line "{材料库} {Material/MatLibrary_GUI.tcl} {一键创建常用的�
 lappend line "{_接触对} {AutoModel/CreatContPair.tcl}"
 lappend line "{接触控制} {AutoModel/CreatCtrl.tcl} {选择接触并创建对应的默认接触控制}"
 lappend line "{默认输出} {AutoModel/CreatOutput.tcl} {创建Abaqus默认的场输出和历程输出}"
-lappend line "{接触历程输出} {AutoModel/CreatContOutput.tcl} {选择接触并创建对应的接触面积、接触力等历程输出}"
+lappend line "{接触历程输出} {AutoModel/CreatContOutput.tcl} {选择接触并创建对应的接触面积、接触力等历程输出(注意，导入ABAQUS/CAE会丢失该设置！)}"
 lappend line "{新建Step} {AutoModel/CreatStaticStep.tcl} {创建默认属性的Static Step}"
 set col [create_label_button $col $line]
 
@@ -158,7 +158,7 @@ set col [create_label_button $col $line]
 # -------------------
 set		line "分析"
 lappend line "{_标准实验} {}"
-lappend line "{_加载曲线} {}"
+lappend line "{加载曲线} {Analysis/curveGUI.tcl}"
 set col [create_label_button $col $line]
 
 # -------------------
@@ -171,7 +171,7 @@ set col [create_label_button $col $line]
 set		line "工具"
 lappend line "{_材料曲线} {Tools/MatEdit.tcl} {根据输入的材料属性绘制对应的应力应变曲线}"
 lappend line "{名称编辑} {Tools/nameEditGUI.tcl}"
-lappend line "{_模型变换} {Tools/modelChangeGUI.tcl} {基于Inp或Odb等，变换模型网格结构}"
+lappend line "{模型变换} {Tools/modelChangeGUI.tcl} {基于Inp或Odb等，变换模型网格结构}"
 lappend line "{模型检查} {Tools/ModelCheck.tcl}"
 set col [create_label_button $col $line]
 
