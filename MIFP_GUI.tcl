@@ -126,7 +126,8 @@ set col 0
 set 	line "自动化"
 lappend line "{_创建流程} {}"
 lappend line "{自动保存} {AutoModel/AutoSave.tcl} {检测无操作1min自动保存修改模型}"
-lappend line "{批量导入} {AutoModel/BatchImport.tcl} {批量导入文件：inp或stl}"
+lappend line "{批量导入} {AutoModel/BatchImport.tcl} {批量导入模型文件：inp或stl}"
+lappend line "{批量导出} {AutoModel/BatchExport.tcl} {批量导出模型文件：stl}"
 lappend line "{项目定制} {AutoModel/projectModel.tcl}"
 set col [create_label_button $col $line]
 
@@ -145,8 +146,10 @@ set col [create_label_button $col $line]
 set 	line "2D网格"
 lappend line "{批量创建：faces} {MeshEdit/batchCreatFaces.tcl} {在comps上创建该comps单元的faces}"
 lappend line "{包络网格} {MeshEdit/wrapMesh.tcl} {创建2D面网格，将所选comps完全包络}"
+lappend line "{交叉检查} {}"
 lappend line "{_网格修复} {MeshEdit/wrapMesh.tcl}"
 lappend line "{_质量优化} {MeshEdit/optimizeElement.tcl}"
+lappend line "{对称差集A△B} {MeshEdit/SymDiffBoolean.tcl}"
 set col [create_label_button $col $line]
 
 # -------------------
@@ -191,7 +194,7 @@ set col [create_label_button $col $line]
 
 # -------------------
 set		line "作业计算"
-lappend line "{Job设置} {Analysis/jobSet.tcl}"
+lappend line "{Job设置} {Analysis/jobSet.tcl} {在对应目录下生成.inp和一系列.py文件}"
 lappend line "{_Job提交} {Analysis/jobSubmit.tcl}"
 lappend line "{_Job监控} {Analysis/jobMonitor.tcl}"
 lappend line "{_Job批处理} {Analysis/jobBatch.tcl}"

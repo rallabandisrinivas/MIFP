@@ -91,8 +91,14 @@ proc chooseInpFile { fileName } {
 	foreach {node_id x y z} $node_coords {
 		catch {
 			# *nodemodify $node_id $x $y $z
+			# 计算平移量
+			set coords [hm_getvalue nodes id=$node_id dataname=localcoordinates]
+			set dx [expr $x - [lindex $coords 0]]
+			set dy [expr $y - [lindex $coords 1]]
+			set dz [expr $z - [lindex $coords 2]]
 			*createmark nodes 1 "by id" $node_id
-			hm_getvalue nodes id=$node_id dataname=localcoordinates
+			# 节点平移
+			
 		}
 	}
 }
