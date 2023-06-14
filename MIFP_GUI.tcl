@@ -146,10 +146,10 @@ set col [create_label_button $col $line]
 set 	line "2D网格"
 lappend line "{批量创建：faces} {MeshEdit/batchCreatFaces.tcl} {在comps上创建该comps单元的faces}"
 lappend line "{包络网格} {MeshEdit/wrapMesh.tcl} {创建2D面网格，将所选comps完全包络}"
-lappend line "{交叉检查} {}"
+lappend line "{交叉检查} {MeshEdit/crossCheck.tcl} {检查2D单元是否存在相互交叉或距离小于容差}"
 lappend line "{_网格修复} {MeshEdit/wrapMesh.tcl}"
 lappend line "{_质量优化} {MeshEdit/optimizeElement.tcl}"
-lappend line "{对称差集A△B} {MeshEdit/SymDiffBoolean.tcl}"
+lappend line "{对称差集A△B} {MeshEdit/SymDiffBoolean.tcl} {对两组2D单元进行布尔运算，求二者的对称差集：A△B={x|x∈A∪B,x∉A∩B}}"
 set col [create_label_button $col $line]
 
 # -------------------
