@@ -1,99 +1,101 @@
 # MIFP
 
-![图标](./Splash/Mesh.png)
-
-## 介绍
-- 用于Hypermesh前处理的快速有限元建模平台，主要面向Abaqus
-- 目标：提高有限元前处理自动化程度，摆脱"手工作坊"式工作流
-- 状态：施工中(Work-in-progress)
+## Introduction
+- A rapid finite element modeling platform for pre-processing in HyperMesh, primarily targeting Abaqus.
+- **Goal**: Enhance the automation of finite element pre-processing and move away from the "manual workshop" workflow.
+- **Status**: Work-in-progress (WIP)
 
 ***
 
-## 版本
+## Version
 
-- Hypermesh2021
-- Abaqus2021
+- HyperMesh 2021
+- Abaqus 2021
 
 ***
 
-## 功能列表
+## Feature List
 
-- [ ] 自动化建模
-    - [ ] 创建流程
-    - [ ] 自动保存
-    - [x] 批量导入(.stl/.inp)
-    - [ ] 批量导出(.stl)
-- [ ] 快速创建
-    - [ ] 部位库
-    - [x] 材料库
-        - [x] 线弹性体
-        - [x] 弹塑性体
-        - [x] 超弹性体
-        - [x] 其他材料
-    - [x] 接触控制
-    - [x] 默认输出(Abaqus)
-    - [x] 接触历程输出
-    - [x] 创建分析步(Static-Step)
-- [ ] 2D网格
-    - [x] 批量创建faces
-    - [x] 包络网格
-    - [ ] 交叉检查
-    - [x] 对称差集
-- [ ] 3D网格
-    - [x] 体素化网格
-- [ ] 分析
-    - [ ] 标准实验
-    - [ ] 加载曲线
-        - [ ] 标准实验-步态
-        - [ ] 生理工况-步态
-- [ ] 视图
-    - [ ] NoFitView(非缩放标准视图)
-    - [ ] 用户视图
-- [ ] 工具
-    - [ ] 材料曲线
-    - [ ] 名称编辑
-        - [x] 添加文本(前缀/后缀)
-        - [x] 删除文本(前缀/后缀/任意位置)
-        - [x] 替换文本
-        - [ ] 规范命名
-        - [ ] 其他工具
-    - [ ] 模型变换(基于.Inp或.Odb)
-        - [ ] 调整节点位置
-    - [ ] 模型检查
-- [ ] Abaqus脚本
-- [ ] Abaqus子程序
+- [ ] **Automated Modeling**
+    - [ ] Create workflows
+    - [ ] Auto-save
+    - [x] Batch import (.stl/.inp)
+    - [ ] Batch export (.stl)
+- [ ] **Quick Creation**
+    - [ ] Component library
+    - [x] Material library
+        - [x] Linear elastomers
+        - [x] Elastic-plastic materials
+        - [x] Hyperelastic materials
+        - [x] Other materials
+    - [x] Contact control
+    - [x] Default outputs (Abaqus)
+    - [x] Contact step outputs
+    - [x] Create analysis steps (Static-Step)
+- [ ] **2D Meshing**
+    - [x] Batch creation of faces
+    - [x] Envelope meshing
+    - [ ] Cross-check
+    - [x] Symmetric difference
+- [ ] **3D Meshing**
+    - [x] Voxelized meshing
+- [ ] **Analysis**
+    - [ ] Standard experiments
+    - [ ] Load curves
+        - [ ] Standard experiments - gait
+        - [ ] Physiological conditions - gait
+- [ ] **View**
+    - [ ] NoFitView (non-scaled standard view)
+    - [ ] User-defined view
+- [ ] **Tools**
+    - [ ] Material curves
+    - [ ] Name editor
+        - [x] Add text (prefix/suffix)
+        - [x] Remove text (prefix/suffix/any position)
+        - [x] Replace text
+        - [ ] Standardize naming
+        - [ ] Other tools
+    - [ ] Model transformation (based on .inp or .odb)
+        - [ ] Adjust node positions
+    - [ ] Model checking
+- [ ] **Abaqus Scripts**
+- [ ] **Abaqus Subroutines**
     - [ ] Standard
     - [ ] Explicit
-- [ ] 作业计算
-- [ ] 接口
-    - [ ] 设置
-    - [ ] 更新
-***
-
-## 快速开始
-
-- 方法1.运行脚本
-
-	运行MIFP_GUI.tcl脚本进入MIFP面板
-
-- 方法2.设置快捷键
-    
-    在"菜单栏->Preferences->Keyboard Settings"中设置快捷键，映射到MIFP_GUI.tcl文件
-    
-![快捷键](./Splash/Keyboard.png)
-
-- 主面板：
-
-![主面板](./Splash/Panel.png)
+- [ ] **Job Calculation**
+- [ ] **Interface**
+    - [ ] Settings
+    - [ ] Updates
 
 ***
 
-## 更新日志
-- [x] V0.2
-    - [x] 2023.06.07
-    - [x] 修正部分错误
-    - [x] UI：添加面板按钮注释
-    - [x] 新功能：创建接触历程输出、支持批量创建faces、2D单元对称差集运算
-- [x] V0.1
-    - [x] 2023.05.24
-    - [x] 更新材料库，添加包络网格(Wrap)和体素化功能
+## Quick Start
+
+- **Method 1**: Run the script
+
+    Run the `MIFP_GUI.tcl` script to access the MIFP panel.
+
+- **Method 2**: Set a keyboard shortcut
+
+    In "Menu Bar -> Preferences -> Keyboard Settings," map a shortcut key to the `MIFP_GUI.tcl` file.
+
+    ![Shortcut](./Splash/Keyboard.png)
+
+- **Main Panel**:
+
+    ![Main Panel](./Splash/Panel.png)
+
+***
+
+## Changelog
+- [x] **V0.2**
+    - [x] **Date**: 2023.06.07
+    - [x] **Updates**:
+        - [x] Fixed some bugs
+        - [x] UI: Added panel button annotations
+        - [x] New features: Contact step outputs, batch face creation, and 2D element symmetric difference operations
+- [x] **V0.1**
+    - [x] **Date**: 2023.05.24
+    - [x] **Updates**:
+        - [x] Updated material library
+        - [x] Added envelope meshing (Wrap) and voxelization features
