@@ -8,7 +8,7 @@
 
 ***
 
-## Version q
+## Version 
 
 - HyperMesh 2021
 - Abaqus 2021
