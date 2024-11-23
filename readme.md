@@ -94,7 +94,7 @@
     - [x] **Updates**:
         - [x] Fixed some bugs
         - [x] UI: Added panel button annotations
-        - [x] New features: Contact step outputs, batch face creation, and 2D element symmetric difference operations
+        - [x] New features: Contact step outputs, batch face creation, and 2D element symmetric difference operation
 - [x] **V0.1**
     - [x] **Date**: 2023.05.24
     - [x] **Updates**:
