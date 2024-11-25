@@ -1,6 +1,6 @@
 # MIFP
 
-## Introduction
+## Introduction .
 - A rapid finite element modeling platform for pre-processing in HyperMesh, primarily targeting Abaqus.
 - **Goal**: Enhance the automation of finite element pre-processing and move away from the "manual workshop" workflow.
 - **Status**: Work-in-progress 
